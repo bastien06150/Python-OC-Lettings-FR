@@ -1,7 +1,15 @@
+"""Data migration to copy lettings and addresses to the new lettings app."""
+
 from django.db import migrations
 
 
 def copy_lettings_data(apps, schema_editor):
+    """Copy address and letting data from the old app to the new lettings app.
+
+    Args:
+        apps: Django apps registry at migration time.
+        schema_editor: Database schema editor provided by Django.
+    """
     OldAddress = apps.get_model("oc_lettings_site", "Address")
     OldLetting = apps.get_model("oc_lettings_site", "Letting")
     NewAddress = apps.get_model("lettings", "Address")
@@ -28,6 +36,7 @@ def copy_lettings_data(apps, schema_editor):
 
 
 class Migration(migrations.Migration):
+    """Migration that copies addresses and lettings into the new app."""
 
     dependencies = [
         ("oc_lettings_site", "0001_initial"),

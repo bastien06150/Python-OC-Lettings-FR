@@ -1,7 +1,15 @@
+"""Data migration to copy profiles to the new profiles app."""
+
 from django.db import migrations
 
 
 def copy_profiles_data(apps, schema_editor):
+    """Copy profile data from the old app to the new profiles app.
+
+    Args:
+        apps: Django apps registry at migration time.
+        schema_editor: Database schema editor provided by Django.
+    """
     OldProfile = apps.get_model("oc_lettings_site", "Profile")
     NewProfile = apps.get_model("profiles", "Profile")
 
@@ -13,6 +21,7 @@ def copy_profiles_data(apps, schema_editor):
 
 
 class Migration(migrations.Migration):
+    """Migration that copies profile data into the new app."""
 
     dependencies = [
         ("oc_lettings_site", "0001_initial"),
