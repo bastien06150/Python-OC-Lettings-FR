@@ -1,8 +1,12 @@
+"""Models for the lettings application."""
+
 from django.db import models
 from django.core.validators import MaxValueValidator, MinLengthValidator
 
 
 class Address(models.Model):
+    """Represents a physical address."""
+
     number = models.PositiveIntegerField(validators=[MaxValueValidator(9999)])
     street = models.CharField(max_length=64)
     city = models.CharField(max_length=64)
@@ -12,7 +16,15 @@ class Address(models.Model):
         max_length=3, validators=[MinLengthValidator(3)]
     )
 
+    class Meta:
+        """Metadata for Address model."""
+
+        verbose_name = "Address"
+        verbose_name_plural = "Addresses"
+
     def __str__(self):
+        """Return a readable representation of the address."""
+
         return f"{self.number} {self.street}"
 
 
@@ -21,4 +33,6 @@ class Letting(models.Model):
     address = models.OneToOneField(Address, on_delete=models.CASCADE)
 
     def __str__(self):
+        """Return the title of the letting."""
+
         return self.title
