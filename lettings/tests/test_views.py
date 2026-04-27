@@ -1,7 +1,7 @@
 """Tests for the lettings views."""
 
 import pytest
-from django.urls import reverse 
+from django.urls import reverse
 from lettings.models import Address, Letting
 
 

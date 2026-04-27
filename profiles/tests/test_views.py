@@ -25,7 +25,7 @@ def test_profile_detail_view(client):
         last_name="Titi",
         email="bastien@exemple.com",
     )
-    profile = Profile.objects.create(user=user, favorite_city="Cannes")
+    Profile.objects.create(user=user, favorite_city="Cannes")
     response = client.get(reverse("profiles:profile", args=[user.username]))
     assert response.status_code == 200
     assert "profiles/profile.html" in [template.name for template in response.templates]

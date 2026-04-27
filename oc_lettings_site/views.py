@@ -1,5 +1,3 @@
-from asyncio.log import logger
-
 from django.shortcuts import render
 import logging
 
