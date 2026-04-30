@@ -5,7 +5,6 @@ from pathlib import Path
 from sentry_sdk.integrations.django import DjangoIntegration
 from dotenv import load_dotenv
 
-
 load_dotenv()
 
 SENTRY_DSN = os.getenv("SENTRY_DSN")
@@ -90,6 +89,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
