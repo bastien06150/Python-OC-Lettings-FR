@@ -64,3 +64,8 @@ Environment variables
 .env
 .env.*
 
+==========================
+Documentation Sphinx
+==========================
+
+_build/
