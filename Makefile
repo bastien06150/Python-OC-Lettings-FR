@@ -5,8 +5,7 @@ build:
 
 run:
 	docker rm -f oc-container || true
-	docker run --env-file .env -p 8000:8000 --name oc-container -d oc-lettings
-	
+	docker run --env-file .env -p 8000:8000 --name oc-container -d bastienm06150/oc-lettings:latest
 
 stop:
 	docker rm -f oc-container || true
