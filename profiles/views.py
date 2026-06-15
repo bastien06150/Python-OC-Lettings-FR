@@ -3,7 +3,7 @@
 import logging
 from django.shortcuts import render
 from .models import Profile
-import os
+
 logger = logging.getLogger(__name__)
 
 
